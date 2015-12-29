@@ -20,10 +20,12 @@ public class BattleshipGame {
 		long startTime = System.currentTimeMillis();
 		String customShip = "< >";
 		String enemyShip = "   ";
-		if (args.length > 0 && !args[0].equals("-c"))
-			customShip = parseArgs(args[0]);
-		if (args.length > 1 && args[1].equals("-c") || args[0].equals("-c"))
-			enemyShip = ">:(";
+		if (args.length > 0) {
+			if (!args[0].equals("-c"))
+				customShip = parseArgs(args[0]);
+			if (args.length > 1 && args[1].equals("-c") || args[0].equals("-c"))
+				enemyShip = ">:(";
+		}
 		BattleshipBoard playerBoard = new BattleshipBoard(customShip);
 		Scanner console = new Scanner(System.in);
 		intro();
